@@ -122,9 +122,9 @@
 	scene.add( ambientLight );
 
 
-// 	var sunLight = new THREE.DirectionalLight( 0xffffff );
-// 	sunLight.position.set( 0, 0, 0 ).normalize();
-// 	scene.add( sunLight );	
+	var directionalLight = new THREE.DirectionalLight( 0xffffff );
+	sunLight.position.set( 0, 0, 0 ).normalize();
+	scene.add( directionalLight );	
 		
 
 
@@ -436,7 +436,7 @@ function onDocumentMouseDown( event ) {
 	animateStars();
 	// TO freeze Planet State
 	
-	sunLight( scene );
+// 	sunLight( scene );
 
 	if(!controlConfig.freezState)
 		revolvePlanet();
