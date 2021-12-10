@@ -122,9 +122,9 @@
 	scene.add( ambientLight );
 
 
-	var sunLight = new THREE.DirectionalLight( 0xffffff );
-	sunLight.position.set( 0, 0, 0 ).normalize();
-	scene.add( sunLight );	
+// 	var sunLight = new THREE.DirectionalLight( 0xffffff );
+// 	sunLight.position.set( 0, 0, 0 ).normalize();
+// 	scene.add( sunLight );	
 		
 
 
@@ -367,9 +367,9 @@
 	
 	controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() 
 	{
-		sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
-		sunLight.shadow.camera.updateProjectionMatrix();
-		shadowCameraHelper.update();
+// 		sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
+// 		sunLight.shadow.camera.updateProjectionMatrix();
+// 		shadowCameraHelper.update();
 
 	});
 
@@ -414,7 +414,7 @@ function onDocumentMouseDown( event ) {
 	
 	function sunLight(scene) {
 	    const color = 0xFFFFFF;
-	    const intensity = 0.1;
+	    const intensity = 0.05;
 	    const sunLight = new THREE.PointLight(color, intensity);
 	    sunLight.position.set(0, 0, 0);
 
@@ -549,6 +549,7 @@ function onDocumentMouseDown( event ) {
 		
 
 	}
+	sunLight( scene );
 	addSphere();
 	animate();
 			
