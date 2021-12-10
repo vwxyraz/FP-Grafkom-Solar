@@ -126,9 +126,6 @@
 // 	directionalLight.position.set( 0, 1, 1 ).normalize();
 // 	scene.add( directionalLight );	
 		
-	sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
-	sunLight.shadow.camera.updateProjectionMatrix();
-	shadowCameraHelper.update();
 
 
 	// Stars
@@ -370,9 +367,9 @@
 	
 	controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() 
 	{
-// 		sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
-// 		sunLight.shadow.camera.updateProjectionMatrix();
-// 		shadowCameraHelper.update();
+		sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
+		sunLight.shadow.camera.updateProjectionMatrix();
+		shadowCameraHelper.update();
 
 	});
 
