@@ -366,9 +366,9 @@
 	
 	controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() 
 	{
-		sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
-		sunLight.shadow.camera.updateProjectionMatrix();
-		shadowCameraHelper.update();
+// 		sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
+// 		sunLight.shadow.camera.updateProjectionMatrix();
+// 		shadowCameraHelper.update();
 
 	});
 
@@ -409,6 +409,24 @@ function onDocumentMouseDown( event ) {
 	}
 
 }
+		
+	
+	function sunLight(scene) {
+	    const color = 0xFFFFFF;
+	    const intensity = 0.5;
+	    const sunLight = new THREE.PointLight(color, intensity);
+	    sunLight.position.set(0, 0, 0);
+
+	    scene.add(sunLight)
+
+	    this.update = function () {
+		// do something
+	    }
+
+	    //gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
+	    //gui.add(light, 'intensity', 0.1, 2, 0.01);
+	}
+		
 	function animate() 
 	{
 	requestAnimationFrame( animate );
@@ -416,6 +434,8 @@ function onDocumentMouseDown( event ) {
 	//if (!guic.freezState) return;
 	animateStars();
 	// TO freeze Planet State
+	
+	sunLight( scene );
 
 	if(!controlConfig.freezState)
 		revolvePlanet();
