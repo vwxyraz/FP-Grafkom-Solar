@@ -366,9 +366,9 @@
 	
 	controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() 
 	{
-		//sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
-		//sunLight.shadow.camera.updateProjectionMatrix();
-		//shadowCameraHelper.update();
+		sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
+		sunLight.shadow.camera.updateProjectionMatrix();
+		shadowCameraHelper.update();
 
 	});
 
@@ -417,10 +417,10 @@ function onDocumentMouseDown( event ) {
 	animateStars();
 	// TO freeze Planet State
 
-	// if(!controlConfig.freezState)
+	if(!controlConfig.freezState)
 		revolvePlanet();
-	// console.log(controlConfig.revolveSpeed);
-	// stats.update();
+	console.log(controlConfig.revolveSpeed);
+	stats.update();
 	}
 
 
