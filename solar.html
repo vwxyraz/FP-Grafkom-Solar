@@ -118,13 +118,13 @@
 	controls.minDistance=10;
 	controls.maxDistance=500;
  	// Load Light
-	var sunLight = new THREE.AmbientLight( 0xffffff );
-	scene.add( sunLight );
+// 	var sunLight = new THREE.AmbientLight( 0xffffff );
+// 	scene.add( sunLight );
 
 
-// 	var directionalLight = new THREE.DirectionalLight( 0xffffff );
-// 	directionalLight.position.set( 0, 1, 1 ).normalize();
-// 	scene.add( directionalLight );	
+	var sunLight = new THREE.DirectionalLight( 0xffffff );
+	sunLight.position.set( 0, 0, 0 ).normalize();
+	scene.add( sunLight );	
 		
 
 
