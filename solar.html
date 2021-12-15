@@ -407,7 +407,7 @@ function onDocumentMouseDown( event ) {
 	 var intersects = raycaster.intersectObjects( pathobj );
 
 	if ( intersects.length > 0 ) {
-	var pt = intersects[0].getPoint( mt );
+// 	var pt = intersects[0].getPoint( mt );
 
 	
 	}
@@ -426,7 +426,7 @@ function onDocumentMouseDown( event ) {
 		
 		if(intersects.length > 0) {
 			var pt = intersects[0].getPoint( mt );
-			if(planet_pos.find(position => position === pt)){
+			if(planet_pos.includes(pt)){
 				controlConfig.freezState = true;
 			}
 			
@@ -575,8 +575,6 @@ function onDocumentMouseDown( event ) {
 			var radians = Math.acos( up.dot( tangent ) );
 			nept = (nept >= 1) ? 0 : nept += 0.0000009/controlConfig.revolveSpeed;
 		}
-		
-		rev = true;
 	}
 	addSphere();
 	animate();
