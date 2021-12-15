@@ -421,11 +421,11 @@ function onDocumentMouseDown( event ) {
 
 		raycaster.setFromCamera( mouse, camera );
 		
-		var intersects = raycaster.intersectObjects( pathobj );
+		var intersects = raycaster.intersectObjects( scene.children, false );
 		
 		if(intersects.length > 0) {
 			var pt = intersects[0].getPoint( mt );
-			if(planet_pos.find(pt)){
+			if(pt == )){
 				controlConfig.freezState = true;
 			}
 			
