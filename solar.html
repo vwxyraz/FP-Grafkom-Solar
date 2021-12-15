@@ -437,10 +437,12 @@ function onDocumentMouseDown( event ) {
 		raycaster.setFromCamera( mouse, camera );
 		
 		var intersects = raycaster.intersectObjects( scene.children , false );
-		console.log(intersects[0].uuid);
 		
 		if(intersects.length > 0) {
 			var pt = intersects[0].getPoint( mt );
+			console.log(intersects[0].uuid);
+			console.log(pt);
+			
 			
 			if(planet_id.some(id => id === intersects[0].uuid))
 			{
@@ -448,7 +450,6 @@ function onDocumentMouseDown( event ) {
 					controlConfig.freezState = true;
 				
 				stats.update();
-				console.log(pt);
 			}
 			
 		}
