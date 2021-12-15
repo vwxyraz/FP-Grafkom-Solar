@@ -408,25 +408,27 @@
 	onDocumentMouseClick( event );
 	}
 
-function onDocumentMouseDown( event ) {
+	function onDocumentMouseDown( event ) {
 
-	event.preventDefault();
+		event.preventDefault();
 
-	mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+		mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+		mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
 
-	raycaster.setFromCamera( mouse, camera );
+		raycaster.setFromCamera( mouse, camera );
 
-	 var intersects = raycaster.intersectObjects( pathobj );
+		 var intersects = raycaster.intersectObjects( pathobj );
 
-	if ( intersects.length > 0 ) {
-// 	var pt = intersects[0].getPoint( mt );
+		if ( intersects.length > 0 ) {
+	// 	var pt = intersects[0].getPoint( mt );
 
-	
+
+		}
+
 	}
-
-}
-		
+	
+	var picked;
+	var pickedColor;
 		
 	function onDocumentMouseClick( event ) {
 		event.preventDefault();
@@ -439,18 +441,26 @@ function onDocumentMouseDown( event ) {
 		var intersects = raycaster.intersectObjects( planobj );
 		
 		if(intersects.length > 0) {
-			var pt = intersects[0].getPoint( mt );
-			console.log(intersects[0].uuid);
-			console.log(pt);
+			picked = intersectObjects[0].object;
+			pickedColor = picked.material.color;
+			
+			picked.material.color = new THREE.Color((time * 8) % 2 > 1 ? 0xFFFF00 : 0xFF0000);
+			
+			if(!controlConfig.freezState)
+				controlConfig.freezState = true;
+			
+// 			var pt = intersects[0].getPoint( mt );
+// 			console.log(intersects[0].uuid);
+// 			console.log(pt);
 			
 			
-			if(planet_id.some(id => id === intersects[0].uuid))
-			{
-				if(!controlConfig.freezState)
-					controlConfig.freezState = true;
+// 			if(planet_id.some(id => id === intersects[0].uuid))
+// 			{
+// 				if(!controlConfig.freezState)
+// 					controlConfig.freezState = true;
 				
-				stats.update();
-			}
+// 				stats.update();
+// 			}
 			
 		}
 	}
