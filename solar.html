@@ -269,6 +269,7 @@
 	const mercuryMesh = new THREE.Mesh(geometry, mercuryMaterial);
 	mercury = createPlanet(scene, mercuryMesh, mercuryGroup, 0.8);
 	planet_id.push(mercury.uuid);
+	console.log(mercury.uuid);
 
 	//venus
 	const venusTexture = loader.load("texture/venus.jpg");
@@ -277,6 +278,7 @@
 	const venusMesh = new THREE.Mesh(geometry, venusMaterial);
 	venus = createPlanet(scene, venusMesh, venusGroup, 0.9);
 	planet_id.push(venus.uuid);
+	console.log(venus.uuid);
 
 	//earth
 	const earthTexture = loader.load("texture/earth.jpg");
