@@ -435,10 +435,12 @@
 		 var intersects = raycaster.intersectObjects( planobj );
 
 		if ( intersects.length > 0 ) {
-			var pt = intersects[0].uuid;
-			console.log(pt);
-			if(!controlConfig.freezState)
-				controlConfig.freezState = !controlConfig.freezState;
+			picked = intersectObjects[0].object;
+			pickedColor = picked.material.color;
+			console.log(picked.uuid);
+			
+			picked.material.color = new THREE.Color(0xFF0000);
+			controlConfig.freezState = !controlConfig.freezState;
 
 		}
 
