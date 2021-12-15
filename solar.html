@@ -413,11 +413,20 @@ function onDocumentMouseDown( event ) {
 }
 		
 	function onDocumentMouseClick( event ) {
+		event.preventDefault();
+
+		mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+		mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+
+		raycaster.setFromCamera( mouse, camera );
+
+		var pt = intersects[0].getPoint( mt );
+		
 		var intersects = raycaster.intersectObjects( pathobj );
 		
 		if(intersects.length > 0) {
 			controlConfig.freezState = true;
-			var pt = intersects[0].getPoint( mt );
+			
 		}
 	}
 		
