@@ -435,7 +435,7 @@
 		 var intersects = raycaster.intersectObjects( planobj );
 
 		if ( intersects.length > 0 ) {
-			picked = intersectObjects[0].object;
+			picked = intersects[0].object;
 			pickedColor = picked.material.color;
 			console.log(picked.uuid);
 			
