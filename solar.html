@@ -411,6 +411,15 @@ function onDocumentMouseDown( event ) {
 
 }
 		
+	function onDocumentMouseClick( event ) {
+		var intersects = raycaster.intersectObjects( pathobj );
+		
+		if(intersects.length > 0) {
+			controlConfig.freezState = true;
+			var pt = intersects[0].getPoint( mt );
+		}
+	}
+		
 	
 	function sunLight(scene) {
 	    const color = 0xFFFFFF;
@@ -547,7 +556,7 @@ function onDocumentMouseDown( event ) {
 			nept = (nept >= 1) ? 0 : nept += 0.0000009/controlConfig.revolveSpeed;
 		}
 		
-
+		rev = true;
 	}
 	addSphere();
 	animate();
