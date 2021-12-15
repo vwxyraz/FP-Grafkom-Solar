@@ -432,6 +432,12 @@
 		
 	function onDocumentMouseClick( event ) {
 		event.preventDefault();
+		
+		if (picked) {
+		    picked.material.color = this.pickedColor;
+		    picked = undefined;
+		}
+
 
 		mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
 		mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
@@ -444,9 +450,9 @@
 			picked = intersectObjects[0].object;
 			pickedColor = picked.material.color;
 			
-			picked.material.color = new THREE.Color((time * 8) % 2 > 1 ? 0xFFFF00 : 0xFF0000);
+			picked.material.color = new THREE.Color(0xFF0000);
 			
-			if(!controlConfig.freezState)
+			if(controlConfig.freezState === false)
 				controlConfig.freezState = true;
 			
 // 			var pt = intersects[0].getPoint( mt );
