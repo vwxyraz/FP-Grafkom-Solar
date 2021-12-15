@@ -459,6 +459,11 @@
 	function onDocumentMouseDown( event ) {
 
 		event.preventDefault();
+		
+		if (picked) {
+		    picked.material.color = pickedColor;
+		    picked = undefined;
+		}
 
 		mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
 		mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
@@ -468,10 +473,6 @@
 		 var intersects = raycaster.intersectObjects( planobj );
 
 		if ( intersects.length > 0 ) {
-			if (picked) {
-			    picked.material.color = pickedColor;
-			    picked = undefined;
-			}
 			
 			picked = intersects[0].object;
 			pickedColor = picked.material.color;
