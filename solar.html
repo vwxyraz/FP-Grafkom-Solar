@@ -422,14 +422,15 @@ function onDocumentMouseDown( event ) {
 
 		raycaster.setFromCamera( mouse, camera );
 		
-		var intersects = raycaster.intersectObjects( scene.children, false );
+		var intersects = raycaster.intersectObjects( scene.children );
 		
 		if(intersects.length > 0) {
 			var pt = intersects[0].getPoint( mt );
-			if(planet_pos.includes(pt)){
-				controlConfig.freezState = true;
-			}
-			
+			if(!controlConfig.freezState)
+					controlConfig.freezState = true;
+				
+			stats.update();
+			console.log(pt);
 		}
 	}
 		
