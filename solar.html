@@ -445,47 +445,47 @@
 	var picked;
 	var pickedColor;
 		
-	function onDocumentMouseClick( event ) {
-		event.preventDefault();
+// 	function onDocumentMouseClick( event ) {
+// 		event.preventDefault();
 		
-		if (picked) {
-		    picked.material.color = this.pickedColor;
-		    picked = undefined;
-		}
+// 		if (picked) {
+// 		    picked.material.color = this.pickedColor;
+// 		    picked = undefined;
+// 		}
 
 
-		mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-		mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+// 		mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+// 		mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
 
-		raycaster.setFromCamera( mouse, camera );
+// 		raycaster.setFromCamera( mouse, camera );
 		
-		var intersects = raycaster.intersectObjects( planobj );
+// 		var intersects = raycaster.intersectObjects( planobj );
 		
-		if(intersects.length > 0) {
-			picked = intersectObjects[0].object;
-			pickedColor = picked.material.color;
-			console.log(picked.uuid);
+// 		if(intersects.length > 0) {
+// 			picked = intersectObjects[0].object;
+// 			pickedColor = picked.material.color;
+// 			console.log(picked.uuid);
 			
-			picked.material.color = new THREE.Color(0xFF0000);
+// 			picked.material.color = new THREE.Color(0xFF0000);
 			
-			if(controlConfig.freezState === false)
-				controlConfig.freezState = true;
+// 			if(controlConfig.freezState === false)
+// 				controlConfig.freezState = true;
 			
-// 			var pt = intersects[0].getPoint( mt );
-// 			console.log(intersects[0].uuid);
-// 			console.log(pt);
+// // 			var pt = intersects[0].getPoint( mt );
+// // 			console.log(intersects[0].uuid);
+// // 			console.log(pt);
 			
 			
-// 			if(planet_id.some(id => id === intersects[0].uuid))
-// 			{
-// 				if(!controlConfig.freezState)
-// 					controlConfig.freezState = true;
+// // 			if(planet_id.some(id => id === intersects[0].uuid))
+// // 			{
+// // 				if(!controlConfig.freezState)
+// // 					controlConfig.freezState = true;
 				
-// 				stats.update();
-// 			}
+// // 				stats.update();
+// // 			}
 			
-		}
-	}
+// 		}
+// 	}
 		
 	
 	function sunLight(scene) {
