@@ -436,7 +436,7 @@ function onDocumentMouseDown( event ) {
 
 		raycaster.setFromCamera( mouse, camera );
 		
-		var intersects = raycaster.intersectObjects( scene.children , false );
+		var intersects = raycaster.intersectObjects( scene.children , true );
 		
 		if(intersects.length > 0) {
 			var pt = intersects[0].getPoint( mt );
