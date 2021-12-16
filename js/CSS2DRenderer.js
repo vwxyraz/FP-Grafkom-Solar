@@ -1,7 +1,3 @@
-/**
- * @author mrdoob / http://mrdoob.com/
- */
-
 THREE.CSS2DObject = function ( element ) {
 
 	THREE.Object3D.call( this );
