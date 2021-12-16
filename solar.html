@@ -251,6 +251,7 @@
 				group.add(mesh);
 				scene.add(group);
 				planobj.push(mesh);
+				planet_id.push(mesh.uuid);
 				return group;
 			}
 
@@ -267,7 +268,7 @@
 			const mercuryGroup = new THREE.Group();
 			const mercuryMesh = new THREE.Mesh(geometry, mercuryMaterial);
 			mercury = createPlanet(scene, mercuryMesh, mercuryGroup, 0.8);
-			planet_id.push(mercury.uuid);
+
 
 			// venus
 			const venusTexture = loader.load("texture/venus.jpg");
@@ -275,7 +276,7 @@
 			const venusGroup = new THREE.Group();
 			const venusMesh = new THREE.Mesh(geometry, venusMaterial);
 			venus = createPlanet(scene, venusMesh, venusGroup, 0.9);
-			planet_id.push(venus.uuid);
+
 
 			// earth
 			const earthTexture = loader.load("texture/earth.jpg");
@@ -283,7 +284,7 @@
 			const earthGroup = new THREE.Group();
 			const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 			earth = createPlanet(scene, earthMesh, earthGroup, 1);
-			planet_id.push(earth.uuid);
+
 
 			// mars 
 			const marsTexture = loader.load("texture/mars.jpg"); 
@@ -291,7 +292,7 @@
 			const marsGroup = new THREE.Group();
 			const marsMesh = new THREE.Mesh(geometry, marsMaterial);
 			mars = createPlanet(scene, marsMesh, marsGroup, 0.8);
-			planet_id.push(mars.uuid);
+
 
 			// jupiter
 			const jupiterTexture = loader.load("texture/jupiter.jpg");
@@ -299,7 +300,7 @@
 			const jupiterGroup = new THREE.Group();
 			const jupiterMesh = new THREE.Mesh(geometry, jupiterMaterial);
 			jupiter = createPlanet(scene, jupiterMesh, jupiterGroup, 3.5);
-			planet_id.push(jupiter.uuid);
+
 		
 			// saturn
 			const saturnTexture = loader.load("texture/saturn.jpg");
@@ -318,7 +319,7 @@
 				beltmesh.rotation.set(5,0,0);
 				saturnGroup.add(beltmesh);
 			saturn = createPlanet(scene, saturnMesh, saturnGroup, 2.9);
-			planet_id.push(saturn.uuid);
+
 
 			// uranus
 			const uranusTexture = loader.load("texture/uranus.jpg");
@@ -326,7 +327,7 @@
 			const uranusGroup = new THREE.Group();
 			const uranusMesh = new THREE.Mesh(geometry, uranusMaterial);
 			uranus = createPlanet(scene, uranusMesh, uranusGroup, 1.7);
-			planet_id.push(uranus.uuid);
+
 
 			// neptunus
 			const neptuneTexture = loader.load("texture/neptune.jpg");
@@ -334,7 +335,7 @@
 			const neptuneGroup = new THREE.Group();
 			const neptuneMesh = new THREE.Mesh(geometry, neptuneMaterial);
 			neptune = createPlanet(scene, neptuneMesh, neptuneGroup, 1.65);
-			planet_id.push(neptune.uuid);
+
 
 			// stats
 			stats = new Stats();
