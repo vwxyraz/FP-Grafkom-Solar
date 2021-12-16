@@ -356,9 +356,9 @@
 	const saturnMesh = new THREE.Mesh(geometry, saturnMaterial);
 
 		// Saturns ring
-		const innerRadius = 4;
-		const outerRadius = 5.5;
-		const thetaSegments = 60;
+		const innerRadius = 3;
+		const outerRadius = 5;
+		const thetaSegments = 64;
 		const saturnBelt = new THREE.RingBufferGeometry(innerRadius, outerRadius, thetaSegments);
 		const ringTexture = loader.load("texture/saturn_ring.png");
 		var pos = saturnBelt.attributes.position;
@@ -405,7 +405,6 @@
 		return group;
 
 	}
-
 
 
 	// FPS stats
