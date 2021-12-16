@@ -392,7 +392,7 @@
 
 			// span to close modal
 			var span = document.getElementsByClassName("close")[0];
-        	var modal = document.getElementById("myModal");
+        		var modal = document.getElementById("myModal");
 
 			span.onclick = function () {
 				modal.style.display = "none";
@@ -406,40 +406,40 @@
 				// get the modal
 				var modal = document.getElementById("myModal");
 
-				var name = document.getElementById("nameOfObject");
-				var volumeXEarths = document.getElementById("volumeXEarths");
-				var orbitDistance = document.getElementById("orbitDistance");
-				var equatorialRadius = document.getElementById("equatorialRadius");
-				var surfaceGravity = document.getElementById("surfaceGravity");
-				var rotationPeriodEarthDays = document.getElementById("rotationPeriodEarthDays");
-				var orbitalPeriod = document.getElementById("orbitalPeriod");
-				var meanOrbitVelocity = document.getElementById("meanOrbitVelocity");
-				var atmoshpericConstituents = document.getElementById("atmoshpericConstituents");
-				var moons = document.getElementById("moons");
-				var rings = document.getElementById("rings");
-				var adjective = document.getElementById("adjective");
+				var name = document.getElementById("nameOfObject").innerHTML = planet_info[pos].name + "  ";
+				var volumeXEarths = document.getElementById("volumeXEarths").innerHTML = planet_info[pos].volumeXEarths;
+				var orbitDistance = document.getElementById("orbitDistance").innerHTML = planet_info[pos].orbitDistance;
+				var equatorialRadius = document.getElementById("equatorialRadius").innerHTML = planet_info[pos].equatorialRadius;
+				var surfaceGravity = document.getElementById("surfaceGravity").innerHTML = planet_info[pos].surfaceGravity;
+				var rotationPeriodEarthDays = document.getElementById("rotationPeriodEarthDays".innerHTML = planet_info[pos].rotationPeriodEarthDays);
+				var orbitalPeriod = document.getElementById("orbitalPeriod").innerHTML = planet_info[pos].orbitalPeriod;
+				var meanOrbitVelocity = document.getElementById("meanOrbitVelocity").innerHTML = planet_info[pos].meanOrbitVelocity;
+				var atmoshpericConstituents = document.getElementById("atmoshpericConstituents").innerHTML = planet_info[pos].atmoshpericConstituents;
+				var moons = document.getElementById("moons").innerHTML = planet_info[pos].moons;
+				var rings = document.getElementById("rings").innerHTML = planet_info[pos].rings;
+				var adjective = document.getElementById("adjective").innerHTML = planet_info[pos].adjective;
 
 				modal.style.display = "block";
 
-				name.innerHTML = AstronomicalBodiesNames[pos].name + "  ";
-				volumeXEarths.innerHTML = AstronomicalBodiesNames[pos].volumeXEarths;
-				orbitDistance.innerHTML = AstronomicalBodiesNames[pos].orbitDistance;
-				equatorialRadius.innerHTML = AstronomicalBodiesNames[pos].equatorialRadius;
-				surfaceGravity.innerHTML = AstronomicalBodiesNames[pos].surfaceGravity;
-				rotationPeriodEarthDays.innerHTML = AstronomicalBodiesNames[pos].rotationPeriodEarthDays;
-				orbitalPeriod.innerHTML = AstronomicalBodiesNames[pos].orbitalPeriod;
-				meanOrbitVelocity.innerHTML = AstronomicalBodiesNames[pos].meanOrbitVelocity;
-				surfaceTemperature.innerHTML = AstronomicalBodiesNames[pos].surfaceTemperature;
-				atmoshpericConstituents.innerHTML = AstronomicalBodiesNames[pos].atmoshpericConstituents;
-				moons.innerHTML = AstronomicalBodiesNames[pos].moons;
-				rings.innerHTML = AstronomicalBodiesNames[pos].rings;
-				adjective.innerHTML = AstronomicalBodiesNames[pos].adjective;
+// 				name.innerHTML = AstronomicalBodiesNames[pos].name + "  ";
+// 				volumeXEarths.innerHTML = AstronomicalBodiesNames[pos].volumeXEarths;
+// 				orbitDistance.innerHTML = AstronomicalBodiesNames[pos].orbitDistance;
+// 				equatorialRadius.innerHTML = AstronomicalBodiesNames[pos].equatorialRadius;
+// 				surfaceGravity.innerHTML = AstronomicalBodiesNames[pos].surfaceGravity;
+// 				rotationPeriodEarthDays.innerHTML = AstronomicalBodiesNames[pos].rotationPeriodEarthDays;
+// 				orbitalPeriod.innerHTML = AstronomicalBodiesNames[pos].orbitalPeriod;
+// 				meanOrbitVelocity.innerHTML = AstronomicalBodiesNames[pos].meanOrbitVelocity;
+// 				surfaceTemperature.innerHTML = AstronomicalBodiesNames[pos].surfaceTemperature;
+// 				atmoshpericConstituents.innerHTML = AstronomicalBodiesNames[pos].atmoshpericConstituents;
+// 				moons.innerHTML = AstronomicalBodiesNames[pos].moons;
+// 				rings.innerHTML = AstronomicalBodiesNames[pos].rings;
+// 				adjective.innerHTML = AstronomicalBodiesNames[pos].adjective;
 			};
 			
 // 			var id[]
     
-			var AstronomicalBodiesNames = {
-				planet_pos[0]: {
+			var planet_info = [
+				planet_id[0]: {
 					"name": "Sun",
 					"volumeXEarths": "1,300,000 ",
 					"orbitDistance": "0",
@@ -454,7 +454,7 @@
 					"rings": "No",
 					"adjective": "Solar",
 				},
-				planet_pos[1]: {
+				planet_id[1]:{
 					"name": "Mercury",
 					"volumeXEarths": "0.056",
 					"orbitDistance": "57,909,227",
@@ -469,7 +469,7 @@
 					"rings": "No",
 					"adjective": "Mercurian, Mercurial",
 				},
-				planet_pos[2]: {
+				planet_id[2]:{
 					"name": "Venus",
 					"volumeXEarths": "0.866",
 					"orbitDistance": "108,209,475",
@@ -484,7 +484,7 @@
 					"rings": "No",
 					"adjective": "Venusian",
 				},
-				planet_pos[3]: {
+				planet_id[3]:{
 					"name": "Earth",
 					"volumeXEarths": "1",
 					"orbitDistance": "149,598,262",
@@ -499,7 +499,7 @@
 					"rings": "No",
 					"adjective": "Terrestrial, Terran",
 				},
-				planet_pos[4]: {        
+				planet_id[4]:{        
 					"name": "Mars",
 					"volumeXEarths": "0.151",
 					"orbitDistance": "227,943,824",
@@ -514,7 +514,7 @@
 					"rings": "No",
 					"adjective": "Martian",
 				},
-				planet_pos[5]: {
+				planet_id[5]:{
 					"name": "Jupiter",
 					"volumeXEarths": "1,321",
 					"orbitDistance": "778,340,821",
@@ -529,7 +529,7 @@
 					"rings": "Yes",
 					"adjective": "Jovian",
 				},
-				planet_pos[6]: {
+				planet_id[6]:{
 					"name": "Saturn",
 					"volumeXEarths": "764",
 					"orbitDistance": "1,426,666,422",
@@ -544,7 +544,7 @@
 					"rings": "Yes",
 					"adjective": "Saturnian",
 				},
-				planet_pos[7]: {
+				planet_id[7]:{
 					"name": "Uranus",
 					"volumeXEarths": "63",
 					"orbitDistance": "2,870,658,186",
@@ -559,7 +559,7 @@
 					"rings": "Yes",
 					"adjective": "Saturnian",
 				},
-				planet_pos[8]: {
+				planet_id[8]:{
 					"name": "Neptune",
 					"volumeXEarths": "58",
 					"orbitDistance": "4,498,396,441",
@@ -574,7 +574,7 @@
 					"rings": "Yes",
 					"adjective": "Neptunian",
 				}
-			}
+			];
 		
 	
 			function sunLight(scene) {
