@@ -361,11 +361,11 @@
 		const thetaSegments = 60;
 		const saturnBelt = new THREE.RingBufferGeometry(innerRadius, outerRadius, thetaSegments);
 		const ringTexture = loader.load("texture/saturn_ring.png");
-		var pos = geometry.attributes.position;
+		var pos = saturnBelt.attributes.position;
 		var v3 = new THREE.Vector3();
 		for (let i = 0; i < pos.count; i++){
 		    v3.fromBufferAttribute(pos, i);
-		    geometry.attributes.uv.setXY(i, v3.length() < 4 ? 0 : 1, 1);
+		    saturnBelt.attributes.uv.setXY(i, v3.length() < 4 ? 0 : 1, 1);
 		}
 		
 		const beltmat = new THREE.MeshStandardMaterial({
