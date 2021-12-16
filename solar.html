@@ -396,7 +396,7 @@
 					picked.material.color = new THREE.Color(0xFF0000);
 					var puid = picked.uuid;
 					console.log(puid);
-					var index = planet_id.map(id => id.indexOf(puid));
+					var index = planet_id.indexOf(puid);
 					console.log(index);
 					openModal(index);
 				}
