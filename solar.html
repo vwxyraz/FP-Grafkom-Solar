@@ -386,8 +386,7 @@
 					picked = intersects[0].object;
 					pickedColor = picked.material.color;
 					picked.material.color = new THREE.Color(0xFF0000);
-					uid = picked.uuid;
-					openModal(uid);
+					openModal(picked.position.x);
 				}
 			}
 
@@ -403,7 +402,7 @@
 				modal.style.display = "none";
 			});
 
-			function openModal(uid) {
+			function openModal(pos) {
 				// get the modal
 				var modal = document.getElementById("myModal");
 
@@ -422,23 +421,25 @@
 
 				modal.style.display = "block";
 
-				name.innerHTML = AstronomicalBodiesNames[uid].name + "  ";
-				volumeXEarths.innerHTML = AstronomicalBodiesNames[uid].volumeXEarths;
-				orbitDistance.innerHTML = AstronomicalBodiesNames[uid].orbitDistance;
-				equatorialRadius.innerHTML = AstronomicalBodiesNames[uid].equatorialRadius;
-				surfaceGravity.innerHTML = AstronomicalBodiesNames[uid].surfaceGravity;
-				rotationPeriodEarthDays.innerHTML = AstronomicalBodiesNames[uid].rotationPeriodEarthDays;
-				orbitalPeriod.innerHTML = AstronomicalBodiesNames[uid].orbitalPeriod;
-				meanOrbitVelocity.innerHTML = AstronomicalBodiesNames[uid].meanOrbitVelocity;
-				surfaceTemperature.innerHTML = AstronomicalBodiesNames[uid].surfaceTemperature;
-				atmoshpericConstituents.innerHTML = AstronomicalBodiesNames[uid].atmoshpericConstituents;
-				moons.innerHTML = AstronomicalBodiesNames[uid].moons;
-				rings.innerHTML = AstronomicalBodiesNames[uid].rings;
-				adjective.innerHTML = AstronomicalBodiesNames[uid].adjective;
+				name.innerHTML = AstronomicalBodiesNames[pos].name + "  ";
+				volumeXEarths.innerHTML = AstronomicalBodiesNames[pos].volumeXEarths;
+				orbitDistance.innerHTML = AstronomicalBodiesNames[pos].orbitDistance;
+				equatorialRadius.innerHTML = AstronomicalBodiesNames[pos].equatorialRadius;
+				surfaceGravity.innerHTML = AstronomicalBodiesNames[pos].surfaceGravity;
+				rotationPeriodEarthDays.innerHTML = AstronomicalBodiesNames[pos].rotationPeriodEarthDays;
+				orbitalPeriod.innerHTML = AstronomicalBodiesNames[pos].orbitalPeriod;
+				meanOrbitVelocity.innerHTML = AstronomicalBodiesNames[pos].meanOrbitVelocity;
+				surfaceTemperature.innerHTML = AstronomicalBodiesNames[pos].surfaceTemperature;
+				atmoshpericConstituents.innerHTML = AstronomicalBodiesNames[pos].atmoshpericConstituents;
+				moons.innerHTML = AstronomicalBodiesNames[pos].moons;
+				rings.innerHTML = AstronomicalBodiesNames[pos].rings;
+				adjective.innerHTML = AstronomicalBodiesNames[pos].adjective;
 			};
+			
+			var id[]
     
 			var AstronomicalBodiesNames = {
-				JSON.stringify(planet_id[0]): {
+				planet_pos[0]: {
 					"name": "Sun",
 					"volumeXEarths": "1,300,000 ",
 					"orbitDistance": "0",
@@ -453,7 +454,7 @@
 					"rings": "No",
 					"adjective": "Solar",
 				},
-				JSON.stringify(planet_id[1]): {
+				planet_pos[1]: {
 					"name": "Mercury",
 					"volumeXEarths": "0.056",
 					"orbitDistance": "57,909,227",
@@ -468,7 +469,7 @@
 					"rings": "No",
 					"adjective": "Mercurian, Mercurial",
 				},
-				JSON.stringify(planet_id[2]): {
+				planet_pos[2]: {
 					"name": "Venus",
 					"volumeXEarths": "0.866",
 					"orbitDistance": "108,209,475",
@@ -483,7 +484,7 @@
 					"rings": "No",
 					"adjective": "Venusian",
 				},
-				JSON.stringify(planet_id[3]): {
+				planet_pos[3]: {
 					"name": "Earth",
 					"volumeXEarths": "1",
 					"orbitDistance": "149,598,262",
@@ -498,7 +499,7 @@
 					"rings": "No",
 					"adjective": "Terrestrial, Terran",
 				},
-				JSON.stringify(planet_id[4]): {        
+				planet_pos[4]: {        
 					"name": "Mars",
 					"volumeXEarths": "0.151",
 					"orbitDistance": "227,943,824",
@@ -513,7 +514,7 @@
 					"rings": "No",
 					"adjective": "Martian",
 				},
-				JSON.stringify(planet_id[5]): {
+				planet_pos[5]: {
 					"name": "Jupiter",
 					"volumeXEarths": "1,321",
 					"orbitDistance": "778,340,821",
@@ -528,7 +529,7 @@
 					"rings": "Yes",
 					"adjective": "Jovian",
 				},
-				JSON.stringify(planet_id[6]): {
+				planet_pos[6]: {
 					"name": "Saturn",
 					"volumeXEarths": "764",
 					"orbitDistance": "1,426,666,422",
@@ -543,7 +544,7 @@
 					"rings": "Yes",
 					"adjective": "Saturnian",
 				},
-				JSON.stringify(planet_id[7]): {
+				planet_pos[7]: {
 					"name": "Uranus",
 					"volumeXEarths": "63",
 					"orbitDistance": "2,870,658,186",
@@ -558,7 +559,7 @@
 					"rings": "Yes",
 					"adjective": "Saturnian",
 				},
-				JSON.stringify(planet_id[8]): {
+				planet_pos[8]: {
 					"name": "Neptune",
 					"volumeXEarths": "58",
 					"orbitDistance": "4,498,396,441",
