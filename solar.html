@@ -437,8 +437,8 @@
 				adjective.innerHTML = AstronomicalBodiesNames[uid].adjective;
 			};
     
-			var AstronomicalBodiesNames = [{
-				planet_id[0]: {
+			var AstronomicalBodiesNames = {
+				JSON.stringify(planet_id[0]): {
 					"name": "Sun",
 					"volumeXEarths": "1,300,000 ",
 					"orbitDistance": "0",
@@ -453,7 +453,7 @@
 					"rings": "No",
 					"adjective": "Solar",
 				},
-				planet_id[1]: {
+				JSON.stringify(planet_id[1]): {
 					"name": "Mercury",
 					"volumeXEarths": "0.056",
 					"orbitDistance": "57,909,227",
@@ -468,7 +468,7 @@
 					"rings": "No",
 					"adjective": "Mercurian, Mercurial",
 				},
-				planet_id[2]: {
+				JSON.stringify(planet_id[2]): {
 					"name": "Venus",
 					"volumeXEarths": "0.866",
 					"orbitDistance": "108,209,475",
@@ -483,7 +483,7 @@
 					"rings": "No",
 					"adjective": "Venusian",
 				},
-				planet_id[3]: {
+				JSON.stringify(planet_id[3]): {
 					"name": "Earth",
 					"volumeXEarths": "1",
 					"orbitDistance": "149,598,262",
@@ -498,7 +498,7 @@
 					"rings": "No",
 					"adjective": "Terrestrial, Terran",
 				},
-				planet_id[4]: {        
+				JSON.stringify(planet_id[4]): {        
 					"name": "Mars",
 					"volumeXEarths": "0.151",
 					"orbitDistance": "227,943,824",
@@ -513,7 +513,7 @@
 					"rings": "No",
 					"adjective": "Martian",
 				},
-				planet_id[5]: {
+				JSON.stringify(planet_id[5]): {
 					"name": "Jupiter",
 					"volumeXEarths": "1,321",
 					"orbitDistance": "778,340,821",
@@ -528,7 +528,7 @@
 					"rings": "Yes",
 					"adjective": "Jovian",
 				},
-				planet_id[6]: {
+				JSON.stringify(planet_id[6]): {
 					"name": "Saturn",
 					"volumeXEarths": "764",
 					"orbitDistance": "1,426,666,422",
@@ -543,7 +543,7 @@
 					"rings": "Yes",
 					"adjective": "Saturnian",
 				},
-				planet_id[7]: {
+				JSON.stringify(planet_id[7]): {
 					"name": "Uranus",
 					"volumeXEarths": "63",
 					"orbitDistance": "2,870,658,186",
@@ -558,7 +558,7 @@
 					"rings": "Yes",
 					"adjective": "Saturnian",
 				},
-				planet_id[8]: {
+				JSON.stringify(planet_id[8]): {
 					"name": "Neptune",
 					"volumeXEarths": "58",
 					"orbitDistance": "4,498,396,441",
@@ -572,7 +572,7 @@
 					"moons": "14",
 					"rings": "Yes",
 					"adjective": "Neptunian",
-				}]
+				}
 			}
 		
 	
