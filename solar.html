@@ -316,7 +316,13 @@
 				const thetaSegments = 60;
 				const saturnBelt = new THREE.RingBufferGeometry(innerRadius, outerRadius, thetaSegments);
 				const ringTexture = loader.load("texture/saturn_ring.png");
-				const beltmat = new THREE.MeshStandardMaterial({side: THREE.DoubleSide, map: ringTexture});
+				  var pos = saturnBelt.attributes.position;
+				  var v3 = new THREE.Vector3();
+				  for (let i = 0; i < pos.count; i++){
+				    v3.fromBufferAttribute(pos, i);
+				    saturnBelt.attributes.uv.setXY(i, v3.length() < 5 ? 0 : 1, 1);
+				  }
+				const beltmat = new THREE.MeshStandardMaterial({side: THREE.DoubleSide, map: ringTexture, transparent: true});
 				const beltmesh = new THREE.Mesh(saturnBelt, beltmat);
 				beltmesh.rotation.set(5,0,0);
 				saturnGroup.add(beltmesh);
@@ -367,7 +373,7 @@
 				event.clientX = event.touches[0].clientX;
 				event.clientY = event.touches[0].clientY;
 				onDocumentMouseDown(event);
-				onDocumentMouseClick(event);
+// 				onDocumentMouseClick(event);
 			}
 
 			var picked;
@@ -411,37 +417,35 @@
 				// get the modal
 				var modal = document.getElementById("myModal");
 
-				var name = document.getElementById("nameOfObject").innerHTML = planet_info[index].name + "  ";
-				var volumeXEarths = document.getElementById("volumeXEarths").innerHTML = planet_info[index].volumeXEarths;
-				var orbitDistance = document.getElementById("orbitDistance").innerHTML = planet_info[index].orbitDistance;
-				var equatorialRadius = document.getElementById("equatorialRadius").innerHTML = planet_info[index].equatorialRadius;
-				var surfaceGravity = document.getElementById("surfaceGravity").innerHTML = planet_info[index].surfaceGravity;
-				var rotationPeriodEarthDays = document.getElementById("rotationPeriodEarthDays".innerHTML = planet_info[index].rotationPeriodEarthDays);
-				var orbitalPeriod = document.getElementById("orbitalPeriod").innerHTML = planet_info[index].orbitalPeriod;
-				var meanOrbitVelocity = document.getElementById("meanOrbitVelocity").innerHTML = planet_info[index].meanOrbitVelocity;
-				var atmoshpericConstituents = document.getElementById("atmoshpericConstituents").innerHTML = planet_info[index].atmoshpericConstituents;
-				var moons = document.getElementById("moons").innerHTML = planet_info[index].moons;
-				var rings = document.getElementById("rings").innerHTML = planet_info[index].rings;
-				var adjective = document.getElementById("adjective").innerHTML = planet_info[index].adjective;
+				var name = document.getElementById("nameOfObject");
+				var volumeXEarths = document.getElementById("volumeXEarths");
+				var orbitDistance = document.getElementById("orbitDistance");
+				var equatorialRadius = document.getElementById("equatorialRadius");
+				var surfaceGravity = document.getElementById("surfaceGravity");
+				var rotationPeriodEarthDays = document.getElementById("rotationPeriodEarthDays");
+				var orbitalPeriod = document.getElementById("orbitalPeriod");
+				var meanOrbitVelocity = document.getElementById("meanOrbitVelocity");
+				var atmoshpericConstituents = document.getElementById("atmoshpericConstituents");
+				var moons = document.getElementById("moons");
+				var rings = document.getElementById("rings");
+				var adjective = document.getElementById("adjective");
 
 				modal.style.display = "block";
 
-// 				name.innerHTML = AstronomicalBodiesNames[pos].name + "  ";
-// 				volumeXEarths.innerHTML = AstronomicalBodiesNames[pos].volumeXEarths;
-// 				orbitDistance.innerHTML = AstronomicalBodiesNames[pos].orbitDistance;
-// 				equatorialRadius.innerHTML = AstronomicalBodiesNames[pos].equatorialRadius;
-// 				surfaceGravity.innerHTML = AstronomicalBodiesNames[pos].surfaceGravity;
-// 				rotationPeriodEarthDays.innerHTML = AstronomicalBodiesNames[pos].rotationPeriodEarthDays;
-// 				orbitalPeriod.innerHTML = AstronomicalBodiesNames[pos].orbitalPeriod;
-// 				meanOrbitVelocity.innerHTML = AstronomicalBodiesNames[pos].meanOrbitVelocity;
-// 				surfaceTemperature.innerHTML = AstronomicalBodiesNames[pos].surfaceTemperature;
-// 				atmoshpericConstituents.innerHTML = AstronomicalBodiesNames[pos].atmoshpericConstituents;
-// 				moons.innerHTML = AstronomicalBodiesNames[pos].moons;
-// 				rings.innerHTML = AstronomicalBodiesNames[pos].rings;
-// 				adjective.innerHTML = AstronomicalBodiesNames[pos].adjective;
+				name.innerHTML = planet_info[index].name + "  ";
+				volumeXEarths.innerHTML = planet_info[index].volumeXEarths;
+				orbitDistance.innerHTML = planet_info[index].orbitDistance;
+				equatorialRadius.innerHTML = planet_info[index].equatorialRadius;
+				surfaceGravity.innerHTML = planet_info[index].surfaceGravity;
+				rotationPeriodEarthDays.innerHTML = planet_info[index].rotationPeriodEarthDays;
+				orbitalPeriod.innerHTML = planet_info[index].orbitalPeriod;
+				meanOrbitVelocity.innerHTML = planet_info[index].meanOrbitVelocity;
+// 				surfaceTemperature.innerHTML = planet_info[index].surfaceTemperature;
+				atmoshpericConstituents.innerHTML = planet_info[index].atmoshpericConstituents;
+				moons.innerHTML = planet_info[index].moons;
+				rings.innerHTML = planet_info[index].rings;
+				adjective.innerHTML = planet_info[index].adjective;
 			};
-			
-// 			var id[]
     
 			var planet_info = [
 				{
@@ -457,7 +461,7 @@
 					"atmoshpericConstituents": "Hydrogen, Helium",
 					"moons": "NA",
 					"rings": "No",
-					"adjective": "Solar",
+					"adjective": "Solar"
 				},
 				{
 					"name": "Mercury",
