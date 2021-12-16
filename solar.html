@@ -253,7 +253,7 @@
 				planobj.push(mesh);
 				planet_id.push(mesh.uuid);
 				
-				console.log(mesh.uuid);
+// 				console.log(mesh.uuid);
 				return group;
 			}
 
@@ -355,7 +355,7 @@
 
 			// controls
 			var controlGUI = guic.addFolder( "Controls" );
-			controlGUI.add( controlConfig, 'freezState' )
+// 			controlGUI.add( controlConfig, 'freezState' )
 			controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() {
 				sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
 				sunLight.shadow.camera.updateProjectionMatrix();
@@ -391,13 +391,15 @@
 				raycaster.setFromCamera(mouse, camera);
 				var intersects = raycaster.intersectObjects(planobj);
 				if (intersects.length > 0) {	
+					if(controlConfig.freezState)
+						controlConfig.freezState = !controlConfig.freezState;
 					picked = intersects[0].object;
 					pickedColor = picked.material.color;
 					picked.material.color = new THREE.Color(0xFF0000);
 					var puid = picked.uuid;
-					console.log(puid);
+// 					console.log(puid);
 					var index = planet_id.indexOf(puid);
-					console.log(index);
+// 					console.log(index);
 					openModal(index);
 				}
 			}
@@ -586,7 +588,7 @@
 				requestAnimationFrame(animate);
 				renderer.render(scene, camera);
 				animateStars();
-				if(!controlConfig.freezState)
+// 				if(!controlConfig.freezState)
 				revolvePlanet();
 				console.log(controlConfig.revolveSpeed);
 				stats.update();
