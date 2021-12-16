@@ -359,17 +359,21 @@
 		const innerRadius = 4;
 		const outerRadius = 5.5;
 		const thetaSegments = 60;
-		const saturnBelt = new THREE.RingBufferGeometry(
-			innerRadius, outerRadius, thetaSegments);
+		const saturnBelt = new THREE.RingBufferGeometry(innerRadius, outerRadius, thetaSegments);
 		const ringTexture = loader.load("texture/saturn_ring.png");
+		var pos = geometry.attributes.position;
+		var v3 = new THREE.Vector3();
+		for (let i = 0; i < pos.count; i++){
+		    v3.fromBufferAttribute(pos, i);
+		    geometry.attributes.uv.setXY(i, v3.length() < 4 ? 0 : 1, 1);
+		}
+		
 		const beltmat = new THREE.MeshStandardMaterial({
-			side: THREE.DoubleSide, map: ringTexture
+			side: THREE.DoubleSide, map: ringTexture, transparent: true
 		});
 		
 		const beltmesh = new THREE.Mesh(saturnBelt, beltmat);
 		beltmesh.rotation.set(5,0,0);
-
-		// beltmesh.position.set(70, 0, 0);
 		saturnGroup.add(beltmesh);
 
 	saturn = createPlanet(scene, saturnMesh, saturnGroup, 2.9);
