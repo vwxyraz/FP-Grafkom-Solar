@@ -316,8 +316,6 @@
 	const mercuryGroup = new THREE.Group();
 	const mercuryMesh = new THREE.Mesh(geometry, mercuryMaterial);
 	mercury = createPlanet(scene, mercuryMesh, mercuryGroup, 0.8);
-	planet_id.push(mercury.uuid);
-	console.log(mercury.uuid);
 
 	//venus
 	const venusTexture = loader.load("texture/venus.jpg");
@@ -325,8 +323,7 @@
 	const venusGroup = new THREE.Group();
 	const venusMesh = new THREE.Mesh(geometry, venusMaterial);
 	venus = createPlanet(scene, venusMesh, venusGroup, 0.9);
-	planet_id.push(venus.uuid);
-	console.log(venus.uuid);
+
 
 	//earth
 	const earthTexture = loader.load("texture/earth.jpg");
@@ -334,7 +331,7 @@
 	const earthGroup = new THREE.Group();
 	const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 	earth = createPlanet(scene, earthMesh, earthGroup, 1);
-	planet_id.push(earth.uuid);
+
 
 	//mars 
 	const marsTexture = loader.load("texture/mars.jpg"); 
@@ -351,7 +348,6 @@
 	const jupiterMesh = new THREE.Mesh(geometry, jupiterMaterial);
 	jupiter = createPlanet(scene, jupiterMesh, jupiterGroup, 3.5);
 
-	planet_id.push(jupiter.uuid);
 		
 	//saturn
 	const saturnTexture = loader.load("texture/saturn.jpg");
@@ -377,7 +373,6 @@
 		saturnGroup.add(beltmesh);
 
 	saturn = createPlanet(scene, saturnMesh, saturnGroup, 2.9);
-	planet_id.push(saturn.uuid);
 
 	//uranus
 	const uranusTexture = loader.load("texture/uranus.jpg");
@@ -385,7 +380,6 @@
 	const uranusGroup = new THREE.Group();
 	const uranusMesh = new THREE.Mesh(geometry, uranusMaterial);
 	uranus = createPlanet(scene, uranusMesh, uranusGroup, 1.7);
-	planet_id.push(uranus.uuid);
 
 	//neptunus
 	const neptuneTexture = loader.load("texture/neptune.jpg");
@@ -393,7 +387,6 @@
 	const neptuneGroup = new THREE.Group();
 	const neptuneMesh = new THREE.Mesh(geometry, neptuneMaterial);
 	neptune = createPlanet(scene, neptuneMesh, neptuneGroup, 1.65);
-	planet_id.push(neptune.uuid);
 
 
 	function createPlanet(scene, mesh, group, scale) {
@@ -402,6 +395,7 @@
 		
 		scene.add(group);
 		planobj.push(mesh);
+		planet_id.push(mesh.uuid);
 		
 		return group;
 
@@ -456,6 +450,8 @@
 	onDocumentMouseClick( event );
 	}
 
+	var picked;
+	var pickedColor;
 	function onDocumentMouseDown( event ) {
 
 		event.preventDefault();
@@ -484,52 +480,7 @@
 		}
 
 	}
-	
-	var picked;
-	var pickedColor;
-		
-// 	function onDocumentMouseClick( event ) {
-// 		event.preventDefault();
-		
-// 		if (picked) {
-// 		    picked.material.color = this.pickedColor;
-// 		    picked = undefined;
-// 		}
 
-
-// 		mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-// 		mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
-
-// 		raycaster.setFromCamera( mouse, camera );
-		
-// 		var intersects = raycaster.intersectObjects( planobj );
-		
-// 		if(intersects.length > 0) {
-// 			picked = intersectObjects[0].object;
-// 			pickedColor = picked.material.color;
-// 			console.log(picked.uuid);
-			
-// 			picked.material.color = new THREE.Color(0xFF0000);
-			
-// 			if(controlConfig.freezState === false)
-// 				controlConfig.freezState = true;
-			
-// // 			var pt = intersects[0].getPoint( mt );
-// // 			console.log(intersects[0].uuid);
-// // 			console.log(pt);
-			
-			
-// // 			if(planet_id.some(id => id === intersects[0].uuid))
-// // 			{
-// // 				if(!controlConfig.freezState)
-// // 					controlConfig.freezState = true;
-				
-// // 				stats.update();
-// // 			}
-			
-// 		}
-// 	}
-		
 	
 	function sunLight(scene) {
 	    const color = 0xFFFFFF;
