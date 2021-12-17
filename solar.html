@@ -57,7 +57,6 @@
 						<li>Mean Orbit Velocity: <span id="meanOrbitVelocity"></span> km/h</li>
 						<li>Surface temperature: <span id="surfaceTemperature"></span> °C</li>
 						<li>Atmoshperic constituents: <span id="atmoshpericConstituents"></span></li>
-						<li>Moons: <span id="moons"></span></li>
 						<li>Rings: <span id="rings"></span></li>
 						<li>Adjective: <span id="adjective"></span></li>
 					</ul>
@@ -403,7 +402,7 @@
 			function onDocumentMouseDown(event) {
 				event.preventDefault();
 				if (picked) {
-					picked.material.color = pickedColor;
+					// picked.material.color = pickedColor;
 					picked = undefined;
 				}
 				mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
@@ -414,8 +413,8 @@
 					if(!controlConfig.freezState)
 						controlConfig.freezState = !controlConfig.freezState;
 					picked = intersects[0].object;
-					pickedColor = picked.material.color;
-					picked.material.color = new THREE.Color(0xFF0000);
+					// pickedColor = picked.material.color;
+					// picked.material.color = new THREE.Color(0xFF0000);
 					var puid = picked.uuid;
 // 					console.log(puid);
 					var index = planet_id.indexOf(puid);
@@ -436,6 +435,12 @@
 				modal.style.display = "none";
 			});
 
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+
 			function openModal(index) {
 				// get the modal
 				var modal = document.getElementById("myModal");
@@ -450,8 +455,8 @@
 				document.getElementById("rotationPeriodEarthDays").innerHTML = planet_info[index].rotationPeriodEarthDays;
 				document.getElementById("orbitalPeriod").innerHTML = planet_info[index].orbitalPeriod;
 				document.getElementById("meanOrbitVelocity").innerHTML = planet_info[index].meanOrbitVelocity;
+				document.getElementById("surfaceTemperature").innerHTML = planet_info[index].surfaceTemperature;
 				document.getElementById("atmoshpericConstituents").innerHTML = planet_info[index].atmoshpericConstituents;
-				document.getElementById("moons").innerHTML = planet_info[index].moons;
 				document.getElementById("rings").innerHTML = planet_info[index].rings;
 				document.getElementById("adjective").innerHTML = planet_info[index].adjective;
 
@@ -469,7 +474,6 @@
 					"meanOrbitVelocity": "NA",
 					"surfaceTemperature": "5505",
 					"atmoshpericConstituents": "Hydrogen, Helium",
-					"moons": "NA",
 					"rings": "No",
 					"adjective": "Solar"
 				},
@@ -483,8 +487,7 @@
 					"orbitalPeriod": "88",
 					"meanOrbitVelocity": "107,218",
 					"surfaceTemperature": "-173/427",
-					"atmoshpericConstituents": "Potassium, Sodium, Atomic oxygen",
-					"moons": "0",
+					"atmoshpericConstituents": "Potassium, Sodium, Atomic oxygen",					
 					"rings": "No",
 					"adjective": "Mercurian, Mercurial",
 				},
@@ -498,8 +501,7 @@
 					"orbitalPeriod": "225",
 					"meanOrbitVelocity": "126,074",
 					"surfaceTemperature": "462",
-					"atmoshpericConstituents": "Carbon Dioxide, Nitrogen",
-					"moons": "0",
+					"atmoshpericConstituents": "Carbon Dioxide, Nitrogen",					
 					"rings": "No",
 					"adjective": "Venusian",
 				},
@@ -513,8 +515,7 @@
 					"orbitalPeriod": "365",
 					"meanOrbitVelocity": "107,218",
 					"surfaceTemperature": "-88/58",
-					"atmoshpericConstituents": "Nitrogen, Oxygen",
-					"moons": "1",
+					"atmoshpericConstituents": "Nitrogen, Oxygen",					
 					"rings": "No",
 					"adjective": "Terrestrial, Terran",
 				},
@@ -528,8 +529,7 @@
 					"orbitalPeriod": "687",
 					"meanOrbitVelocity": "86,677",
 					"surfaceTemperature": "-153/20",
-					"atmoshpericConstituents": "Carbon Dioxide, Nitrogen, Argon",
-					"moons": "2",
+					"atmoshpericConstituents": "Carbon Dioxide, Nitrogen, Argon",					
 					"rings": "No",
 					"adjective": "Martian",
 				},
@@ -544,7 +544,6 @@
 					"meanOrbitVelocity": "47,002",
 					"surfaceTemperature": "NA",
 					"atmoshpericConstituents": "Hydrogen, Helium",
-					"moons": "79",
 					"rings": "Yes",
 					"adjective": "Jovian",
 				},
@@ -559,7 +558,6 @@
 					"meanOrbitVelocity": "34,701",
 					"surfaceTemperature": "NA",
 					"atmoshpericConstituents": "Hydrogen, Helium",
-					"moons": "83",
 					"rings": "Yes",
 					"adjective": "Saturnian",
 				},
@@ -574,7 +572,6 @@
 					"meanOrbitVelocity": "24,477",
 					"surfaceTemperature": "NA",
 					"atmoshpericConstituents": "Hydrogen, Helium, Methane",
-					"moons": "27",
 					"rings": "Yes",
 					"adjective": "Saturnian",
 				},
@@ -589,7 +586,6 @@
 					"meanOrbitVelocity": "19,566",
 					"surfaceTemperature": "NA",
 					"atmoshpericConstituents": "Hydrogen, Helium, Methane",
-					"moons": "14",
 					"rings": "Yes",
 					"adjective": "Neptunian",
 				}
