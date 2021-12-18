@@ -12,9 +12,7 @@
   height: 100%; 
   overflow: auto; 
   background-color: rgba(0, 0, 0, .0001) !important; 
-  opacity: 0.5 !important;
-   filter: blur(8px);
-  -webkit-filter: blur(8px);
+  opacity: 0.8 !important; 
 }
 
 /* Modal Content */
@@ -63,7 +61,7 @@
   background-color: #fefefee3;
   border-radius: 10px;
   color: black;
-  opacity: 0.5 !important;
+  opacity: 0.8 !important;
 }
 
 .modal-header-name {
