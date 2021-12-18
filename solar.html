@@ -412,8 +412,7 @@
 				raycaster.setFromCamera(mouse, camera);
 				var intersects = raycaster.intersectObjects(planobj);
 				if (intersects.length > 0) {	
-					if(!controlConfig.freezState)
-						controlConfig.freezState = !controlConfig.freezState;
+					controlConfig.freezState = !controlConfig.freezState;
 					picked = intersects[0].object;
 					// pickedColor = picked.material.color;
 					// picked.material.color = new THREE.Color(0xFF0000);
