@@ -605,8 +605,8 @@
 				requestAnimationFrame(animate);
 				renderer.render(scene, camera);
 				animateStars();
-// 				if(!controlConfig.freezState)
-				revolvePlanet();
+				if(!controlConfig.freezState)
+					revolvePlanet();
 				console.log(controlConfig.revolveSpeed);
 				stats.update();
 			}
