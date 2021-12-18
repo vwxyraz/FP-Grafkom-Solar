@@ -431,8 +431,8 @@
 
 			span.onclick = function () {
 				modal.style.display = "none";
-				if(!controlConfig.freezState)
-					controlConfig.freezState = !controlConfig.freezState;
+				controlConfig.freezState = !controlConfig.freezState;
+				revolvePlanet();
 			}
 
 			span.addEventListener('touchend', (event) => {
